@@ -1,0 +1,29 @@
+table File {
+  name:string;
+  size:long;
+  hash:[int8];
+  chunks:[Chunk];
+  executable:bool;
+  symlink:string;
+}
+
+table Fragment {
+  name:string;
+  files:[File];
+  bundles:[Bundle];
+}
+
+table Chunk {
+  hash:[int8];
+  size:long;
+  offset:long;
+}
+
+table Bundle {
+  hash:[int8];
+  chunks:[Chunk];
+}
+
+table Manifest {
+  fragments:[Fragment];
+}
